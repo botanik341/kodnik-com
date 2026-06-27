@@ -353,7 +353,7 @@
             Kodnik runs a full local AI model on your hardware: Windows 10/11 x64, <span class="accent">32 GB RAM</span> and about <span class="accent">24.8 GB of disk space</span>. A GPU is not required, but it makes work noticeably faster.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#pricing">Get Kodnik — €4.99</a>
+            <a class="btn btn-primary" href="#pricing" onclick="buyKodnik(); return false;">Get Kodnik — €4.99</a>
             <a class="btn btn-secondary" href="#system-ai">See how it edits files</a>
           </div>
           <div class="micro-row" aria-label="Key information">
@@ -680,7 +680,7 @@ renderTrainingTable();</div>
             </ul>
             <p class="price">One-time beta access: <strong>€4.99</strong></p>
             <p style="margin: -10px 0 22px; color: var(--muted-2); line-height: 1.55;">International payment page for Kodnik Beta Access. Use card, PayPal or another available payment method in the checkout.</p>
-            <a class="btn btn-primary" href="https://1ct.eu/5DkWv" target="_blank" rel="noopener">Go to checkout</a>
+            <a class="btn btn-primary" href="#pricing" onclick="buyKodnik(); return false;">Go to checkout</a>
           </div>
 
           <div class="info-panel">
@@ -780,5 +780,41 @@ renderTrainingTable();</div>
       </div>
     </div>
   </footer>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script>
+    (function () {
+      var kodnikPaddleToken = "live_ec209e5e4ace8e79ba416bea303";
+      var kodnikPriceId = "pri_01kw4nz3mmxf4kj50qj9tf3yj1";
+      var paddleReady = false;
+
+      function initializeKodnikPaddle() {
+        if (paddleReady || !window.Paddle) return;
+        Paddle.Initialize({
+          token: kodnikPaddleToken
+        });
+        paddleReady = true;
+      }
+
+      window.buyKodnik = function () {
+        initializeKodnikPaddle();
+
+        if (!window.Paddle) {
+          window.location.href = "mailto:kontakt@kodnik.pl?subject=Kodnik%20Beta%20Access";
+          return;
+        }
+
+        Paddle.Checkout.open({
+          items: [
+            {
+              priceId: kodnikPriceId,
+              quantity: 1
+            }
+          ]
+        });
+      };
+
+      initializeKodnikPaddle();
+    })();
+  </script>
 </body>
 </html>
