@@ -353,7 +353,7 @@
             Kodnik runs a full local AI model on your hardware: Windows 10/11 x64, <span class="accent">32 GB RAM</span> and about <span class="accent">24.8 GB of disk space</span>. A GPU is not required, but it makes work noticeably faster.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#pricing" onclick="buyKodnik(); return false;">Get Kodnik — €4.99</a>
+            <a class="btn btn-primary" href="#pricing">Kodnik beta information</a>
             <a class="btn btn-secondary" href="#system-ai">See how it edits files</a>
           </div>
           <div class="micro-row" aria-label="Key information">
@@ -626,7 +626,7 @@ renderTrainingTable();</div>
     <section id="requirements">
       <div class="container">
         <span class="section-kicker">Requirements and data</span>
-        <h2>Check your hardware before purchase.</h2>
+        <h2>Check your hardware before installation.</h2>
         <p class="section-lead">
           Kodnik runs a full AI model locally. The minimum is <strong>32 GB RAM</strong>, Windows 10/11 x64 and a CPU with AVX2. After installation and model download, Kodnik uses about <strong>24.8 GB</strong> of disk space.
         </p>
@@ -663,34 +663,35 @@ renderTrainingTable();</div>
     <section id="pricing">
       <div class="container">
         <span class="section-kicker">Beta version</span>
-        <h2>Get Kodnik and start working with local AI.</h2>
+        <h2>Kodnik beta access information.</h2>
         <div class="pricing-wrap">
           <div class="pricing-panel">
             <h3>Kodnik beta version</h3>
             <p>
-              You get the installer for the current Windows app, beta updates included in the purchase, and a local AI agent for working on your own project folders.
+              The public purchase option is currently disabled. This page now provides product information only.
+              To ask about beta access, availability or installation, contact the Kodnik team directly.
             </p>
             <ul class="pricing-list">
               <li>Windows desktop application</li>
               <li>creating, editing and fixing code in projects</li>
               <li>local AI model running on your computer</li>
-              <li>beta updates included</li>
-              <li>no subscription</li>
-              <li>no cloud account</li>
+              <li>local work without a cloud account</li>
+              <li>no subscription required for local use</li>
+              <li>English and Polish task instructions</li>
             </ul>
-            <p class="price">One-time beta access: <strong>€4.99</strong></p>
-            <p style="margin: -10px 0 22px; color: var(--muted-2); line-height: 1.55;">International payment page for Kodnik Beta Access. Use card, PayPal or another available payment method in the checkout.</p>
-            <a class="btn btn-primary" href="#pricing" onclick="buyKodnik(); return false;">Go to checkout</a>
+            <p class="price"><strong>Online checkout is disabled.</strong></p>
+            <p style="margin: -10px 0 22px; color: var(--muted-2); line-height: 1.55;">For beta access details, contact: <a href="mailto:kontakt@kodnik.pl">kontakt@kodnik.pl</a>.</p>
+            <a class="btn btn-primary" href="mailto:kontakt@kodnik.pl?subject=Kodnik%20Beta%20Access">Contact about beta access</a>
           </div>
 
           <div class="info-panel">
-            <h3>How does the purchase work?</h3>
+            <h3>How do I get access?</h3>
             <p>
-              You go to the payment checkout. After purchase, you receive a link to the Kodnik installer.
+              The payment button has been removed from this page. Contact the Kodnik team to ask whether beta access is currently available.
             </p>
             <br />
             <p>
-              Install the application, open a project folder and work locally on your computer. Questions: <a href="mailto:kontakt@kodnik.pl">kontakt@kodnik.pl</a>.
+              Before installation, check that your computer meets the requirements: Windows 10/11 x64, 32 GB RAM, AVX2 CPU and about 24.8 GB of free disk space.
             </p>
           </div>
         </div>
@@ -728,7 +729,7 @@ renderTrainingTable();</div>
     <section id="faq">
       <div class="container">
         <span class="section-kicker">FAQ</span>
-        <h2>Questions before purchase.</h2>
+        <h2>Questions before installation.</h2>
         <div class="faq-grid">
           <div class="faq-item">
             <h3>What exactly does Kodnik do with my project?</h3>
@@ -751,8 +752,8 @@ renderTrainingTable();</div>
             <p>Yes, Kodnik works on CPU only. A GPU with at least 6 GB VRAM speeds up work, and 8 GB+ VRAM gives the best comfort.</p>
           </div>
           <div class="faq-item">
-            <h3>Do I pay a subscription?</h3>
-            <p>No. You pay once — no subscription and no cloud account. During the beta period, updates are included.</p>
+            <h3>Is there a subscription?</h3>
+            <p>No subscription is required for local use and no cloud account is needed. Beta access terms are provided directly by the Kodnik team.</p>
           </div>
           <div class="faq-item">
             <h3>Will I get updates?</h3>
@@ -780,41 +781,5 @@ renderTrainingTable();</div>
       </div>
     </div>
   </footer>
-  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-  <script>
-    (function () {
-      var kodnikPaddleToken = "live_ec209e5e4ace8e79ba416bea303";
-      var kodnikPriceId = "pri_01kw4nz3mmxf4kj50qj9tf3yj1";
-      var paddleReady = false;
-
-      function initializeKodnikPaddle() {
-        if (paddleReady || !window.Paddle) return;
-        Paddle.Initialize({
-          token: kodnikPaddleToken
-        });
-        paddleReady = true;
-      }
-
-      window.buyKodnik = function () {
-        initializeKodnikPaddle();
-
-        if (!window.Paddle) {
-          window.location.href = "mailto:kontakt@kodnik.pl?subject=Kodnik%20Beta%20Access";
-          return;
-        }
-
-        Paddle.Checkout.open({
-          items: [
-            {
-              priceId: kodnikPriceId,
-              quantity: 1
-            }
-          ]
-        });
-      };
-
-      initializeKodnikPaddle();
-    })();
-  </script>
 </body>
 </html>
