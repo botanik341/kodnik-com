@@ -684,20 +684,20 @@ renderTrainingTable();</div>
 <span class="section-kicker">AI models</span>
 <h2>Kodnik selects the model for the task.</h2>
 <p class="section-lead">
-          The beta version uses two local AI models. The smaller model handles faster, lighter tasks, while the larger model is used for more demanding coding work. Kodnik selects the appropriate model while it works.
+          The beta version uses two tested local AI models: Qwen3.5‑9B‑Q6_K_L and Qwen3.6‑27B‑Q3_K_L. Both models are released under the Apache 2.0 license, and the GGUF files in these quantizations used by Kodnik were prepared by Bartowski. Kodnik automatically selects the model appropriate for the task.
         </p>
 <div class="requirements">
 <div class="req-card">
-<h3>Smaller model</h3>
-<p>Used for faster replies, conversation, simpler analysis and lighter project tasks.</p>
+<h3>Qwen3.5‑9B Q6_K_L</h3>
+<p>Kodnik uses it for regular conversation, simple tasks, simpler analysis and lighter project changes. The smaller model responds faster.</p>
 </div>
 <div class="req-card">
-<h3>Larger model</h3>
-<p>Used for more demanding tasks, program creation and complex code changes.</p>
+<h3>Qwen3.6‑27B Q3_K_L</h3>
+<p>When Kodnik enters a more complex mode or a task requires more demanding coding work, it automatically switches to the 27B model.</p>
 </div>
 <div class="req-card">
-<h3>More models in the full version</h3>
-<p>In the beta, Kodnik manages the model set automatically. In the full version, we plan to add a wider selection of local AI models.</p>
+<h3>More models to choose from</h3>
+<p>During beta, we only provide models that have been tested and work well in Kodnik. Over time, we will add more tested models to choose from.</p>
 </div>
 </div>
 <div class="privacy-box">
@@ -802,14 +802,14 @@ renderTrainingTable();</div>
 <div class="pricing-panel">
 <h3>Kodnik beta version</h3>
 <p>
-              You receive the installer for the current Windows version, beta updates at no extra cost and an agent with local AI models for working on your own project folder.
+              You receive the installer for the current Windows version, beta updates at no extra cost and an agent with two local AI models for working on your own project folder.
             </p>
 <ul class="pricing-list">
 <li>Windows desktop application</li>
 <li>creating, editing and fixing code in projects</li>
 <li>shared project terminal: PowerShell, CMD and Git Bash</li>
 <li>small, large or Auto context selection</li>
-<li>local AI models running on your computer</li>
+<li>two local AI models running on your computer</li>
 <li>Thinking / Fast response mode in the interface</li>
 <li>beta updates at no extra cost</li>
 <li>no subscription</li>
@@ -836,7 +836,7 @@ renderTrainingTable();</div>
 <span class="section-kicker">Roadmap</span>
 <h2>Better work with larger projects.</h2>
 <p class="section-lead">
-          The direction is clear: better work with project files, more control over changes and a smoother task workflow.
+          The direction is clear: better work with project files, more control over changes, a smoother task workflow and a wider choice of tested local AI models.
         </p>
 <div class="roadmap-line">
 <span class="roadmap-pill">screenshot reading and UI analysis</span>
@@ -847,6 +847,7 @@ renderTrainingTable();</div>
 <span class="roadmap-pill">faster operation on lower-end PCs</span>
 <span class="roadmap-pill">bug fixes and stability</span>
 <span class="roadmap-pill">more tools for the AI model</span>
+<span class="roadmap-pill">more tested models to choose from</span>
 </div>
 </div>
 </section>
