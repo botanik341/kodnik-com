@@ -25,6 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <style>
     :root {
       --bg: #080b12;
@@ -604,7 +605,7 @@
 <span class="accent">Kodnik</span> works directly on your project files, runs commands and carries a task from your instruction to a finished change. It runs on Windows — locally, on your computer.
           </p>
 <div class="cta-row">
-<a class="btn btn-primary" href="https://1ct.eu/5DkWv" rel="noopener" target="_blank">Buy Kodnik — PLN 19.99</a>
+<a class="btn btn-primary" data-paddle-buy href="#pricing">Buy Kodnik — $5.99</a>
 <a class="btn btn-secondary" href="https://github.com/botanik341/kodnik/releases/download/demo-2026-08-19/Kodnik_DEMO_Setup.exe" rel="noopener" target="_blank">Download DEMO — 2 hours</a>
 </div>
 <p class="hero-note">
@@ -1019,17 +1020,21 @@ renderTrainingTable();</div>
 <li>no subscription</li>
 <li>no cloud account</li>
 </ul>
-<p class="price">One-time payment: <strong>PLN 19.99</strong></p>
-<a class="btn btn-primary" href="https://1ct.eu/5DkWv" rel="noopener" target="_blank">Go to checkout</a>
+<p class="price">One-time payment: <strong>USD $5.99</strong></p>
+<a class="btn btn-primary" data-paddle-buy href="#pricing">Go to secure checkout</a>
 </div>
 <div class="info-panel">
 <h3>How does purchasing work?</h3>
 <p>
-              You proceed to checkout. After payment, you receive a download link for the Kodnik installer.
+              Checkout is handled securely by Paddle. The price is USD $5.99 as a one-time payment — there is no subscription.
             </p>
 <br/>
 <p>
-              Install the application, open a project folder and work locally on your computer. Questions: <a href="mailto:kontakt@kodnik.pl">kontakt@kodnik.pl</a>.
+              After a successful payment, Kodnik automatically sends a private download link to the email used at checkout. The link is valid for 72 hours and allows up to 5 download attempts.
+            </p>
+<br/>
+<p>
+              Already purchased? <a href="/download.html">Get a fresh private download link</a>. Questions about Kodnik: <a href="mailto:kontakt@kodnik.pl">kontakt@kodnik.pl</a>.
             </p>
 </div>
 </div>
@@ -1098,11 +1103,57 @@ renderTrainingTable();</div>
 <div><strong>Kodnik</strong></div>
 <div class="footer-meta">
 <a href="mailto:kontakt@kodnik.pl">kontakt@kodnik.pl</a>
-<a href="https://kodnik.1ct.eu/pl/about" rel="noopener" target="_blank">Seller information</a>
 <a href="#privacy">Privacy in Kodnik</a>
 </div>
 </div>
 </footer>
+<script data-kodnik-checkout="paddle-live">
+  (() => {
+    const PADDLE_CLIENT_TOKEN = "live_dada761572fa0be55fad551f100";
+    const PADDLE_PRICE_ID = "pri_01kw4nz3mmxf4kj50qj9tf3yj1";
+
+    function openKodnikCheckout(event) {
+      event.preventDefault();
+
+      if (!window.Paddle || !window.Paddle.Checkout) {
+        console.error("Paddle.js is not available.");
+        alert("Checkout could not be opened. Please refresh the page and try again.");
+        return;
+      }
+
+      window.Paddle.Checkout.open({
+        items: [
+          {
+            priceId: PADDLE_PRICE_ID,
+            quantity: 1
+          }
+        ],
+        settings: {
+          displayMode: "overlay",
+          theme: "dark",
+          locale: "en",
+          variant: "one-page",
+          successUrl: "https://kodnik.com/download.html?purchase=complete"
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!window.Paddle) {
+        console.error("Paddle.js failed to load.");
+        return;
+      }
+
+      window.Paddle.Initialize({
+        token: PADDLE_CLIENT_TOKEN
+      });
+
+      document.querySelectorAll("[data-paddle-buy]").forEach((button) => {
+        button.addEventListener("click", openKodnikCheckout);
+      });
+    });
+  })();
+</script>
 <script>
     (() => {
       const menuButton = document.querySelector('.menu-toggle');
@@ -1167,7 +1218,7 @@ renderTrainingTable();</div>
     });
 
     // Purchase / checkout actions.
-    document.querySelectorAll('a[href="https://1ct.eu/5DkWv"]').forEach(function(a){
+    document.querySelectorAll('[data-paddle-buy]').forEach(function(a){
       a.addEventListener("click", function(){
         clarityEvent("click_buy");
         if ((a.textContent || "").toLowerCase().includes("checkout")) {
@@ -1184,9 +1235,6 @@ renderTrainingTable();</div>
     // Contact / seller info.
     document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
       a.addEventListener("click", function(){ clarityEvent("click_email"); });
-    });
-    document.querySelectorAll('a[href="https://kodnik.1ct.eu/pl/about"]').forEach(function(a){
-      a.addEventListener("click", function(){ clarityEvent("click_seller_info"); });
     });
 
     // Internal navigation.
