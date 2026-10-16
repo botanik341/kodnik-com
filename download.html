@@ -31,7 +31,7 @@
 <main class="card">
   <div class="brand">Kodnik</div>
   <h1 id="title">Your Kodnik download</h1>
-  <p id="lead">Use the private link from your purchase email to download the full Kodnik installer.</p>
+  <p id="lead">Sign in to your Kodnik account using your purchase email to download the installer. Existing private links remain supported.</p>
 
   <div class="actions" id="download-actions" hidden>
     <a class="btn primary" id="download-button" href="#">Download Kodnik</a>
@@ -42,8 +42,8 @@
   </p>
 
   <section class="box">
-    <h2>Already purchased?</h2>
-    <p>Enter the email used at Paddle checkout. If a completed Kodnik purchase exists, a fresh private download link will be sent to that address.</p>
+    <h2>Already purchased?</h2><p><a href="/account.html">Sign in or create your Kodnik account</a></p>
+    <p>Enter the email used at Paddle checkout. If a completed Kodnik purchase exists, access instructions will be sent to that address.</p>
     <form id="recover-form">
       <label for="email">Purchase email</label>
       <div class="row">
@@ -72,7 +72,7 @@
 
   if (token) {
     title.textContent = "Your Kodnik download is ready";
-    lead.textContent = "Click below to download the full Windows installer.";
+    lead.textContent = "Click below to download the Kodnik installer for Windows.";
     downloadButton.href = API_BASE + "/download?token=" + encodeURIComponent(token);
     actions.hidden = false;
     note.hidden = false;
