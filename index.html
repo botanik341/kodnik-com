@@ -591,6 +591,7 @@
 <a href="#requirements">Requirements</a>
 <a href="#demo">DEMO</a>
 <a href="#faq">FAQ</a>
+<a href="/account.html">My account</a>
 </nav>
 <div class="header-actions">
 <button aria-controls="primary-nav" aria-expanded="false" class="menu-toggle" type="button">Menu</button>
@@ -607,7 +608,7 @@
 <span class="accent">Kodnik</span> works directly on your project files, runs commands and carries a task from your instruction to a finished change. It runs on Windows — locally, on your computer.
           </p>
 <div class="cta-row">
-<a class="btn btn-primary" data-paddle-buy href="#pricing">Buy Kodnik — $5.99</a>
+<a class="btn btn-primary" data-paddle-buy href="#pricing">Kodnik FULL — 12-month license</a>
 <a class="btn btn-secondary" href="https://github.com/botanik341/kodnik/releases/download/demo-2026-08-19/Kodnik_DEMO_Setup.exe" rel="noopener" target="_blank">Download DEMO — 2 hours</a>
 </div>
 <p class="hero-note">
@@ -878,7 +879,7 @@ renderTrainingTable();</div>
 <span class="mode-label offline">OFFLINE</span>
 <h3>Local work</h3>
 <p>
-              Work with project files without a cloud account and without a permanent internet connection.
+              Work with local project files without a permanent connection. Your account activates FULL; your projects stay on your computer.
             </p>
 </article>
 <article class="info-panel">
@@ -1003,7 +1004,7 @@ renderTrainingTable();</div>
 <section id="pricing">
 <div class="container">
 <span class="section-kicker">Full version</span>
-<h2>Buy Kodnik and work without a time limit.</h2>
+<h2>Kodnik FULL for 12 months.</h2>
 <div class="pricing-wrap">
 <div class="pricing-panel">
 <h3>Kodnik</h3>
@@ -1019,16 +1020,17 @@ renderTrainingTable();</div>
 <li>local AI models downloaded and connected from within the app</li>
 <li>internet tools available in ONLINE mode</li>
 <li>Frequent updates</li>
-<li>no subscription</li>
+<li>no automatic renewal or automatic charges</li>
 <li>no cloud account</li>
 </ul>
-<p class="price">One-time payment: <strong>USD $5.99</strong></p>
+<p class="price">12-month license: <strong>€11.99 / 12 months</strong></p>
+<p><a href="/terms.html">License terms</a> · <a href="/privacy.html">Privacy policy</a> · <a href="/refund-policy.html">Refund policy</a></p>
 <a class="btn btn-primary" data-paddle-buy href="#pricing">Go to secure checkout</a>
 </div>
 <div class="info-panel">
 <h3>How does purchasing work?</h3>
 <p>
-              Checkout is handled securely by Paddle. The price is USD $5.99 as a one-time payment — there is no subscription.
+              Checkout is handled securely by Paddle. Each 12-month term is a separate one-time purchase. No automatic renewal or automatic charges. The price is €11.99 per 12-month term.
             </p>
 <br/>
 <p>
@@ -1036,7 +1038,7 @@ renderTrainingTable();</div>
             </p>
 <br/>
 <p>
-              Already purchased? <a href="/download.html">Get a fresh private download link</a>. Questions about Kodnik: <a href="mailto:kontakt@kodnik.pl">kontakt@kodnik.pl</a>.
+              Already purchased? <a href="/account.html">Sign in to download Kodnik FULL</a>. Questions about Kodnik: <a href="mailto:kontakt@kodnik.pl">kontakt@kodnik.pl</a>.
             </p>
 </div>
 </div>
@@ -1070,7 +1072,7 @@ renderTrainingTable();</div>
 </div>
 <div class="faq-item">
 <h3>Is there a subscription?</h3>
-<p>No. You pay once — with no subscription and no cloud account. Frequent updates are included at no extra cost.</p>
+<p>Each payment covers 12 calendar months from term activation. Renewal is manual. FULL requires renewal after expiry. One account is shared with kodnik.pl and the application. OFFLINE works throughout the valid term without periodic server contact.</p>
 </div>
 <div class="faq-item">
 <h3>Will I receive updates?</h3>
@@ -1104,11 +1106,12 @@ renderTrainingTable();</div>
 <script data-kodnik-checkout="paddle-live">
   (() => {
     const PADDLE_CLIENT_TOKEN = "live_dada761572fa0be55fad551f100";
-    const PADDLE_PRICE_ID = "pri_01kw4nz3mmxf4kj50qj9tf3yj1";
+    const PADDLE_PRICE_ID = "pri_01m52nvckrmcspk6pkefby03ge"; // Approved annual price: EUR 11.99; production Paddle price verified on 2026-10-16.
 
     function openKodnikCheckout(event) {
       event.preventDefault();
 
+      if (!PADDLE_PRICE_ID) { alert("Annual checkout is being prepared. Please try again later."); return; }
       if (!window.Paddle || !window.Paddle.Checkout) {
         console.error("Paddle.js is not available.");
         alert("Checkout could not be opened. Please refresh the page and try again.");
@@ -1127,7 +1130,7 @@ renderTrainingTable();</div>
           theme: "dark",
           locale: "en",
           variant: "one-page",
-          successUrl: "https://kodnik.com/download.html?purchase=complete"
+          successUrl: "https://kodnik-fulfillment.ujot.workers.dev/en/account.html?purchase=complete"
         }
       });
     }
